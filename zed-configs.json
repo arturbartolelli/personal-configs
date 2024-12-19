@@ -1,0 +1,16 @@
+{
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 18,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Carbonfox"
+  },
+  "autosave": "on_focus_change",
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  }
+}

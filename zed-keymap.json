@@ -1,0 +1,45 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {}
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "ctrl-t": "terminal_panel::ToggleFocus",
+      "space l f": "editor::Format",
+      "space l r": "editor::Rename",
+      "space f": "file_finder::Toggle",
+      "space o": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Terminal && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {}
+  }
+]
