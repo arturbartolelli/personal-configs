@@ -23,7 +23,12 @@
       "space l f": "editor::Format",
       "space l r": "editor::Rename",
       "space f": "file_finder::Toggle",
-      "space o": "tab_switcher::Toggle"
+      "space o": "tab_switcher::Toggle",
+      "space e": "workspace::ToggleLeftDock",
+      "space p": "outline::Toggle",
+      "space v": "editor::GoToDefinition",
+      "space s a": "pane::DeploySearch",
+      "g r": "editor::FindAllReferences"
     }
   },
   {
@@ -40,6 +45,9 @@
   },
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
-    "bindings": {}
+    "bindings": {
+      "shift-j": "editor::MoveLineUp",
+      "shift-k": "editor::MoveLineDown"
+    }
   }
 ]
