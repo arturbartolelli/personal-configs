@@ -2,7 +2,13 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-t": "terminal_panel::ToggleFocus"
+      "ctrl-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-e": ["workspace::ActivatePaneInDirection", "Right"]
     }
   },
   {
@@ -19,7 +25,8 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "shift-k": "editor::Hover",
-      "ctrl-t": "terminal_panel::ToggleFocus",
+      "ctrl-e": "project_panel::ToggleFocus",
+      "ctrl-w": "pane::CloseActiveItem",
       "space l f": "editor::Format",
       "space l r": "editor::Rename",
       "space f": "file_finder::Toggle",
@@ -28,6 +35,7 @@
       "space p": "outline::Toggle",
       "space v": "editor::GoToDefinition",
       "space s a": "pane::DeploySearch",
+      "g o": "editor::GoToTypeDefinition",
       "g r": "editor::FindAllReferences"
     }
   },
@@ -46,8 +54,8 @@
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
-      "shift-j": "editor::MoveLineUp",
-      "shift-k": "editor::MoveLineDown"
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown"
     }
   }
 ]

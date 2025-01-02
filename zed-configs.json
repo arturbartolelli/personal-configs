@@ -12,5 +12,6 @@
   "relative_line_numbers": true,
   "scrollbar": {
     "show": "never"
-  }
+  },
+  "use_autoclose": false
 }
