@@ -2,7 +2,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-e": "project_panel::ToggleFocus"
+      "ctrl-e": "project_panel::ToggleFocus",
+      "ctrl-f": "file_finder::Toggle"
     }
   },
   {
@@ -36,7 +37,13 @@
       "space v": "editor::GoToDefinition",
       "space s a": "pane::DeploySearch",
       "g o": "editor::GoToTypeDefinition",
-      "g r": "editor::FindAllReferences"
+      "g r": "editor::FindAllReferences",
+      "ctrl-shift-u": "vim::ScrollUp",
+      "ctrl-shift-d": "vim::ScrollDown",
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
+      "ctrl-shift-n": "vim::MoveToNextMatch",
+      "n": ["workspace::SendKeystrokes", "ctrl-shift-n z z"]
     }
   },
   {
