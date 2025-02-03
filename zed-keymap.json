@@ -1,68 +1,83 @@
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-e": "project_panel::ToggleFocus",
-      "ctrl-f": "file_finder::Toggle"
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-e": "project_panel::ToggleFocus",
+            "ctrl-f": "file_finder::Toggle"
+        }
+    },
+    {
+        "context": "ProjectPanel",
+        "bindings": {
+            "ctrl-e": [
+                "workspace::ActivatePaneInDirection",
+                "Right"
+            ]
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {}
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-t": "terminal_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+        "bindings": {
+            "shift-k": "editor::Hover",
+            "ctrl-e": "project_panel::ToggleFocus",
+            "ctrl-w": "pane::CloseActiveItem",
+            "space l f": "editor::Format",
+            "space l r": "editor::Rename",
+            "space l l": "diagnostics::Deploy",
+            "space f": "file_finder::Toggle",
+            "space o": "tab_switcher::Toggle",
+            "space e": "workspace::ToggleLeftDock",
+            "space p": "outline::Toggle",
+            "space s a": "pane::DeploySearch",
+            "space d": "editor::GoToTypeDefinition",
+            "g r": "editor::FindAllReferences",
+            "ctrl-shift-u": "vim::ScrollUp",
+            "ctrl-shift-d": "vim::ScrollDown",
+            "ctrl-u": [
+                "workspace::SendKeystrokes",
+                "ctrl-shift-u z z"
+            ],
+            "ctrl-d": [
+                "workspace::SendKeystrokes",
+                "ctrl-shift-d z z"
+            ],
+            "ctrl-shift-n": "vim::MoveToNextMatch",
+            "n": [
+                "workspace::SendKeystrokes",
+                "ctrl-shift-n z z"
+            ],
+            "z f": "editor::ToggleFold",
+            "z a": "editor::FoldAll",
+            "z u": "editor::UnfoldAll"
+        }
+    },
+    {
+        "context": "Terminal && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+        "bindings": {
+            "ctrl-t": "terminal_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == insert && !menu",
+        "bindings": {
+            "j j": "vim::NormalBefore"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+        "bindings": {
+            "shift-k": "editor::MoveLineUp",
+            "shift-j": "editor::MoveLineDown"
+        }
     }
-  },
-  {
-    "context": "ProjectPanel",
-    "bindings": {
-      "ctrl-e": ["workspace::ActivatePaneInDirection", "Right"]
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {}
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-t": "terminal_panel::ToggleFocus"
-    }
-  },
-  {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-    "bindings": {
-      "shift-k": "editor::Hover",
-      "ctrl-e": "project_panel::ToggleFocus",
-      "ctrl-w": "pane::CloseActiveItem",
-      "space l f": "editor::Format",
-      "space l r": "editor::Rename",
-      "space f": "file_finder::Toggle",
-      "space o": "tab_switcher::Toggle",
-      "space e": "workspace::ToggleLeftDock",
-      "space p": "outline::Toggle",
-      "space v": "editor::GoToDefinition",
-      "space s a": "pane::DeploySearch",
-      "g o": "editor::GoToTypeDefinition",
-      "g r": "editor::FindAllReferences",
-      "ctrl-shift-u": "vim::ScrollUp",
-      "ctrl-shift-d": "vim::ScrollDown",
-      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
-      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
-      "ctrl-shift-n": "vim::MoveToNextMatch",
-      "n": ["workspace::SendKeystrokes", "ctrl-shift-n z z"]
-    }
-  },
-  {
-    "context": "Terminal && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-    "bindings": {
-      "ctrl-t": "terminal_panel::ToggleFocus"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == insert && !menu",
-    "bindings": {
-      "j j": "vim::NormalBefore"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
-    "bindings": {
-      "shift-k": "editor::MoveLineUp",
-      "shift-j": "editor::MoveLineDown"
-    }
-  }
 ]
