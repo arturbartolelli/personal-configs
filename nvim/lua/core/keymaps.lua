@@ -1,4 +1,13 @@
 local builtin = require("telescope.builtin")
+local telescope = require("telescope")
+
+telescope.setup({
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
+})
 
 -- Telescope
 vim.keymap.set("n", "<C-p>", builtin.find_files, { noremap = true, silent = true, desc = "Fuzzy find files" })
@@ -34,9 +43,54 @@ vim.keymap.set("n", "<C-_>", function()
 	require("Comment.api").toggle.linewise.current()
 end, { desc = "Toggle comment for current line" })
 
+local function smart_tab()
+	local line = vim.api.nvim_get_current_line()
+
+	if line:match("^%s*$") then
+		local shiftwidth = vim.opt.shiftwidth:get()
+		local expandtab = vim.opt.expandtab:get()
+		local indent_str
+
+		if expandtab then
+			indent_str = string.rep(" ", shiftwidth)
+		else
+			indent_str = "\t"
+		end
+
+		vim.api.nvim_feedkeys(indent_str, "n", false)
+	else
+		local keys = vim.api.nvim_replace_termcodes("<C-o>>>", true, false, true)
+		vim.api.nvim_feedkeys(keys, "n", false)
+	end
+end
+
+vim.keymap.set("i", "<Tab>", smart_tab, { noremap = true, silent = true })
+vim.keymap.set("i", "<S-Tab>", "<C-o><<", { noremap = true, silent = true })
+
 vim.keymap.set(
 	"v",
 	"<C-_>",
 	"<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 	{ desc = "Toggle comment for selection" }
 )
+
+vim.keymap.set("n", "<C-i>", function()
+	vim.cmd("startinsert") -- vai para o modo Insert
+	vim.schedule(function()
+		require("cmp").complete() -- dispara o menu de completions
+	end)
+end, { desc = "Entrar em Insert + abrir autoimport" })
+
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- UFO
+vim.o.foldlevel = 99
+vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+
+require("ufo").setup({
+	provider_selector = function(bufnr, filetype, buftype)
+		return { "lsp", "indent" }
+	end,
+})

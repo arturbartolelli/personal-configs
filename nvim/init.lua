@@ -1,7 +1,7 @@
 require("config.lazy")
 require("core.keymaps")
 
-vim.cmd("colorscheme catppuccin")
-vim.opt.foldmethod = "indent"
+vim.cmd("colorscheme carbonfox")
 vim.opt.foldenable = true
+vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
